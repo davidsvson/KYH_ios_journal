@@ -15,13 +15,13 @@ struct ContentView: View {
         NavigationView {
             List() {
                 ForEach(journal.entries) { entry in
-                    NavigationLink(destination: JournalEntryView(entry: entry)) {
+                    NavigationLink(destination: JournalEntryView(entry: entry, journal: journal)) {
                         Text(entry.content)
                     }
                 }
             }
                 .navigationTitle("Journal")
-                .navigationBarItems(trailing: NavigationLink(destination: JournalEntryView()) {
+                .navigationBarItems(trailing: NavigationLink(destination: JournalEntryView(journal: journal)) {
                     Image(systemName: "plus.circle")
                 })
         }
